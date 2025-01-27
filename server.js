@@ -4,14 +4,29 @@ const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
 
+// Use the Render-assigned PORT or default to 3000
+const PORT = process.env.PORT || 3000;
+
+// Initialize Socket.IO with CORS settings
+const io = new Server(server, {
+    cors: {
+        origin: "*", // Allow all origins (adjust as needed for security)
+        methods: ["GET", "POST"]
+    }
+});
+
+// Serve a basic homepage (optional)
+app.get('/', (req, res) => {
+    res.send('WebSocket server is running!');
+});
+
+// Socket.IO logic
 io.on('connection', (socket) => {
     console.log('A user connected');
 
-    // When a user sends a "button_clicked" event
+    // Handle button click event
     socket.on('button_clicked', () => {
-        // Broadcast it to all other connected users
         socket.broadcast.emit('alert_user', 'User 1 clicked the button!');
     });
 
@@ -20,6 +35,7 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(3000, () => {
-    console.log('Server is running on t t  http://localhost:3000');
+// Start the server
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
