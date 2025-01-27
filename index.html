@@ -10,17 +10,16 @@
     <button id="clickMe">Click Me</button>
 
     <script>
-        const socket = io('https://socketiobuttontestnew.onrender.com'); // Connect to the WebSocket server
+       const socket = io('https://socketiobuttontestnew.onrender.com'); // Replace with your Render URL
 
-        // When the button is clicked
-        document.getElementById('clickMe').addEventListener('click', () => {
-            socket.emit('button_clicked'); // Notify the server
-        });
+document.getElementById('clickMe').addEventListener('click', () => {
+    socket.emit('button_clicked');
+});
 
-        // Listen for alerts from the server
-        socket.on('alert_user', (message) => {
-            alert(message); // Display the alert
-        });
+socket.on('alert_user', (message) => {
+    alert(message);
+});
+
     </script>
 </body>
 </html>
