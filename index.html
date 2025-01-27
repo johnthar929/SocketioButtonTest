@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Example</title>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+</head>
+<body>
+    <button id="clickMe">Click Me</button>
+
+    <script>
+        const socket = io('http://localhost:3000'); // Connect to the WebSocket server
+
+        // When the button is clicked
+        document.getElementById('clickMe').addEventListener('click', () => {
+            socket.emit('button_clicked'); // Notify the server
+        });
+
+        // Listen for alerts from the server
+        socket.on('alert_user', (message) => {
+            alert(message); // Display the alert
+        });
+    </script>
+</body>
+</html>
