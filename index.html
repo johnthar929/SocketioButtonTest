@@ -5,16 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebSocket Example</title>
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <style>
+        .controllbox{
+            display:flex;
+            margin:10px;
+        }
+        .controllbox button{
+            margin:10px;
+            border:solid red 2px;
+            border-radius:10px;
+        }
+    </style>
 </head>
 <body>
+    <div class="controlbox">
     <button id="clickMe">Click Me</button>
-
+    <button id="clickMe1">Click Me1</button>
+    <button id="clickMe2">Click Me2</button>
+    <button id="clickMe3">Click Me2</button>
+    </div>
     <script>
        const socket = io('https://socketiobuttontestnew.onrender.com'); // Replace with your Render URL
 
 document.getElementById('clickMe').addEventListener('click', () => {
     socket.emit('button_clicked');
 });
+
+document.getElementById('clickMe1').addEventListener('click', () => {
+    socket.emit('button1_clicked');
+});
+
+document.getElementById('clickMe2').addEventListener('click', () => {
+    socket.emit('button2_clicked');
+});
+
+document.getElementById('clickMe3').addEventListener('click', () => {
+    socket.emit('button3_clicked');
+});
+
+        
 
 socket.on('alert_user', (message) => {
     alert(message);
