@@ -28,19 +28,19 @@ io.on('connection', (socket) => {
 
     // Handle button click event
     socket.on('button_clicked', () => {
-        socket.broadcast.emit('alert_user', 'User 1 clicked the button!');
+        socket.broadcast.emit('alert_user', 'patternA');
     });
 
     socket.on('button1_clicked', () => {
-        socket.broadcast.emit('alert_user', 'User 1 clicked the button!');
+        socket.broadcast.emit('alert_user', 'patternB');
     });
 
     socket.on('button2_clicked', () => {
-        socket.broadcast.emit('alert_user', 'User 1 clicked the button!');
+        socket.broadcast.emit('alert_user', 'patternC');
     });
 
     socket.on('button3_clicked', () => {
-        socket.broadcast.emit('alert_user', 'User 1 clicked the button!');
+        socket.broadcast.emit('alert_user', 'patternD');
     });
 
     
