@@ -45,8 +45,30 @@ document.getElementById('clickMe3').addEventListener('click', () => {
 
         
 
-socket.on('alert_user', (message) => {
+//socket.on('alert_user', (message) => {
+//    alert(message);
+//});
+
+        socket.on('alert_user', (message) => {
     alert(message);
+    //        document.getElementById('clickMe').innerHTML="";
+
+    if (message === 'patternA') {
+        // Example: vibrate 200ms, pause 100ms, vibrate 200ms
+        navigator.vibrate([200, 100, 200]);
+    } else if (message === 'patternB') {
+        // Example: vibrate 500ms
+        navigator.vibrate(500);
+    } else if (message === 'patternC') {
+        // Example: vibrate 100ms, pause 50ms, vibrate 100ms, pause 50ms, vibrate 100ms
+        navigator.vibrate([100, 50, 100, 50, 100]);
+    } else if (message === 'patternD') {
+        // Example: vibrate 1000ms
+        navigator.vibrate(1000);
+    } else {
+        // Stop any vibration if message is not matched
+        navigator.vibrate(0);
+    }
 });
 
     </script>
