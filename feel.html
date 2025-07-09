@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feel Example</title>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+</head>
+<body>
+  <h1>Feel It</h1>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script>
+const socket = io('https://socketiobuttontestnew.onrender.com'); // Replace with your URL
+
+socket.on('alert_user', (message) => {
+    alert(message);
+
+    if (message === 'patternA') {
+        // Example: vibrate 200ms, pause 100ms, vibrate 200ms
+        navigator.vibrate([200, 100, 200]);
+    } else if (message === 'patternB') {
+        // Example: vibrate 500ms
+        navigator.vibrate(500);
+    } else if (message === 'patternC') {
+        // Example: vibrate 100ms, pause 50ms, vibrate 100ms, pause 50ms, vibrate 100ms
+        navigator.vibrate([100, 50, 100, 50, 100]);
+    } else if (message === 'patternD') {
+        // Example: vibrate 1000ms
+        navigator.vibrate(1000);
+    } else {
+        // Stop any vibration if message is not matched
+        navigator.vibrate(0);
+    }
+});
+</script>
+
+</body>
+</html>
