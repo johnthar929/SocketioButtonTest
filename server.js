@@ -31,6 +31,20 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('alert_user', 'User 1 clicked the button!');
     });
 
+    socket.on('button1_clicked', () => {
+        socket.broadcast.emit('alert_user', 'User 1 clicked the button!');
+    });
+
+    socket.on('button2_clicked', () => {
+        socket.broadcast.emit('alert_user', 'User 1 clicked the button!');
+    });
+
+    socket.on('button3_clicked', () => {
+        socket.broadcast.emit('alert_user', 'User 1 clicked the button!');
+    });
+
+    
+
     socket.on('disconnect', () => {
         console.log('A user disconnected');
     });
