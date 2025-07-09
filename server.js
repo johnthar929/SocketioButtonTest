@@ -18,7 +18,8 @@ const io = new Server(server, {
 
 // Serve a basic homepage (optional)
 app.get('/', (req, res) => {
-    res.send('WebSocket server is running!');
+    //res.send('WebSocket server is running!');
+    res.sendFile(__dirname + "/index.html"); //links to html file CHANGE /index.html to you actually html file
 });
 
 // Socket.IO logic
